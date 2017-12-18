@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.NotepadApp" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">#78b938</item>
+        <item name="colorPrimaryDark">#296c0b</item>
+        <item name="colorAccent">#b1e2b6</item>
+        <item name="actionModeBackground">@drawable/cab_background_top</item>
+        <item name="floatingActionButtonStyle">@style/NotepadApp.Fab</item>
+    </style>
+
+    <style name="NotepadApp.Fab" parent="FloatingActionButton">
+        <item name="floatingActionButtonColor">#e91e63</item>
+    </style>
+
+</resources>
