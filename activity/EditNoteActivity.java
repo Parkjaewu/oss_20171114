@@ -18,11 +18,7 @@ import roboguice.activity.RoboActionBarActivity;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 
-/**
- * Actividad para editar notas.
- *
- * @author Daniel Pedraza Arcega
- */
+
 @ContentView(R.layout.activity_edit_note)
 public class EditNoteActivity extends RoboActionBarActivity {
 
@@ -33,40 +29,24 @@ public class EditNoteActivity extends RoboActionBarActivity {
 
     private Note note;
 
-    /**
-     * Construye el Intent para llamar a esta actividad con una nota ya existente.
-     *
-     * @param context el contexto que la llama.
-     * @param note la nota a editar.
-     * @return un Intent.
-     */
+
     public static Intent buildIntent(Context context, Note note) {
         Intent intent = new Intent(context, EditNoteActivity.class);
         intent.putExtra(EXTRA_NOTE, note);
         return intent;
     }
 
-    /**
-     * Construye el Intent para llamar a esta actividad para crear una nota.
-     *
-     * @param context el contexto que la llama.
-     * @return un Intent.
-     */
+
     public static Intent buildIntent(Context context) {
         return buildIntent(context, null);
     }
 
-    /**
-     * Recupera la nota editada.
-     *
-     * @param intent el Intent que vine en onActivityResult
-     * @return la nota actualizada
-     */
+
     public static Note getExtraNote(Intent intent) {
         return (Note) intent.getExtras().get(EXTRA_NOTE);
     }
 
-    /** {@inheritDoc} */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -81,14 +61,14 @@ public class EditNoteActivity extends RoboActionBarActivity {
         }
     }
 
-    /** {@inheritDoc} */
+ 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.edit_note, menu);
         return true;
     }
 
-    /** {@inheritDoc} */
+ 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -105,15 +85,12 @@ public class EditNoteActivity extends RoboActionBarActivity {
         }
     }
 
-    /** @return {@code true} si tiene titulo y contenido; {@code false} en cualquier otro caso. */
+
     private boolean isNoteFormOk() {
         return !Strings.isNullOrBlank(noteTitleText.getText().toString()) && !Strings.isNullOrBlank(noteContentText.getText().toString());
     }
 
-    /**
-     * Actualiza el contenido del objeto Note con los campos de texto del layout y pone el objeto
-     * como resultado de esta actividad.
-     */
+
     private void setNoteResult() {
         note.setTitle(noteTitleText.getText().toString().trim());
         note.setContent(noteContentText.getText().toString().trim());
@@ -123,7 +100,7 @@ public class EditNoteActivity extends RoboActionBarActivity {
         setResult(RESULT_OK, resultIntent);
     }
 
-    /** Muestra mensajes de validación de la forma de la nota. */
+ 
     private void validateNoteForm() {
         StringBuilder message = null;
         if (Strings.isNullOrBlank(noteTitleText.getText().toString())) {
@@ -141,7 +118,7 @@ public class EditNoteActivity extends RoboActionBarActivity {
         }
     }
 
-    /** {@inheritDoc} */
+
     @Override
     public void onBackPressed() {
         setResult(RESULT_CANCELED, new Intent());
