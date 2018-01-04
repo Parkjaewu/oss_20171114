@@ -198,7 +198,6 @@ public class MainActivity extends RoboActionBarActivity {
         listAdapter.notifyDataSetChanged();
     }
 
-    /** Reinicia las notas seleccionadas a no seleccionadas y limpia la lista de seleccionados. */
     private void resetSelectedListItems() {
         for (NotesAdapter.NoteViewWrapper noteViewWrapper : notesData) noteViewWrapper.setSelected(false);
         selectedPositions.clear();
@@ -236,7 +235,7 @@ public class MainActivity extends RoboActionBarActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (selectedPositions.contains(position)) {
-                    selectedPositions.remove((Object)position); // no quiero el índice sino el objeto
+                    selectedPositions.remove((Object)position); 
                     if (selectedPositions.isEmpty()) actionMode.finish();
                     else {
                         actionMode.setTitle(String.valueOf(selectedPositions.size()));
