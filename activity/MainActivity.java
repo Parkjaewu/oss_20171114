@@ -171,11 +171,7 @@ public class MainActivity extends RoboActionBarActivity {
         listAdapter.notifyDataSetChanged();
     }
 
-    /**
-     * Borra notas de la lista y de la fuente de datos.
-     *
-     * @param selectedPositions las posiciones de las notas en la lista.
-     */
+ 
     private void deleteNotes(ArrayList<Integer> selectedPositions) {
         ArrayList<NotesAdapter.NoteViewWrapper> toRemoveList = new ArrayList<>(selectedPositions.size());
         for (int position : selectedPositions) {
@@ -188,11 +184,7 @@ public class MainActivity extends RoboActionBarActivity {
         listAdapter.notifyDataSetChanged();
     }
 
-    /**
-     * Actualiza una nota en la lista y la fuente de datos.
-     *
-     * @param data los datos de la actividad de edición de notas.
-     */
+
     private void updateNote(Intent data) {
         Note updatedNote = ViewNoteActivity.getExtraUpdatedNote(data);
         noteDAO.update(updatedNote);
@@ -213,10 +205,7 @@ public class MainActivity extends RoboActionBarActivity {
         listAdapter.notifyDataSetChanged();
     }
 
-    /**
-     * Inicializa las acciones de la lista al hacer click en sus items cuando NO esta activo el
-     * modo contextual.
-     */
+
     private void setListOnItemClickListenersWhenNoActionMode() {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -239,10 +228,7 @@ public class MainActivity extends RoboActionBarActivity {
         });
     }
 
-    /**
-     * Inicializa las acciones de la lista al hacer click en sus items cuando esta activo el menu
-     * contextual.
-     */
+
     private void setListOnItemClickListenersWhenActionMode() {
         listView.setOnItemLongClickListener(null);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
