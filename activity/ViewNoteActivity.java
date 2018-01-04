@@ -20,11 +20,7 @@ import roboguice.activity.RoboActionBarActivity;
 import roboguice.inject.ContentView;
 import roboguice.inject.InjectView;
 
-/**
- * Actividad para visualizar una nota. Adicionalmente, se puede editar la nota en otra actividad.
- *
- * @author Daniel Pedraza Arcega
- */
+
 @ContentView(R.layout.activity_view_note)
 public class ViewNoteActivity extends RoboActionBarActivity {
 
@@ -42,30 +38,19 @@ public class ViewNoteActivity extends RoboActionBarActivity {
 
     private Note note;
 
-    /**
-     * Construye el Intent para llamar a esta actividad.
-     *
-     * @param context el contexto que la llama.
-     * @param note la nota a visualizar.
-     * @return un Intent.
-     */
+
     public static Intent buildIntent(Context context, Note note) {
         Intent intent = new Intent(context, ViewNoteActivity.class);
         intent.putExtra(EXTRA_NOTE, note);
         return intent;
     }
 
-    /**
-     * Recupera la nota actualizada en la actividad de edición de notas.
-     *
-     * @param intent el Intent que vine en onActivityResult
-     * @return la nota actualizada
-     */
+
     public static Note getExtraUpdatedNote(Intent intent) {
         return (Note) intent.getExtras().get(EXTRA_UPDATED_NOTE);
     }
 
-    /** {@inheritDoc} */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,7 +70,7 @@ public class ViewNoteActivity extends RoboActionBarActivity {
         noteUpdatedAtDateText.setText(DATETIME_FORMAT.format(note.getUpdatedAt()));
     }
 
-    /** {@inheritDoc} */
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -96,7 +81,7 @@ public class ViewNoteActivity extends RoboActionBarActivity {
         }
     }
 
-    /** {@inheritDoc} */
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == EDIT_NOTE_RESULT_CODE) {
@@ -112,7 +97,6 @@ public class ViewNoteActivity extends RoboActionBarActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    /** {@inheritDoc} */
     @Override
     public void onBackPressed() {
         setResult(RESULT_CANCELED, new Intent());
