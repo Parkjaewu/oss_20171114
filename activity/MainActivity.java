@@ -152,10 +152,10 @@ public class MainActivity extends RoboActionBarActivity {
     }
 
     private void updateView() {
-        if (notesData.isEmpty()) { // Mostrar mensaje
+        if (notesData.isEmpty()) { 
             listView.setVisibility(View.GONE);
             emptyListTextView.setVisibility(View.VISIBLE);
-        } else { // Mostrar lista
+        } else { 
             listView.setVisibility(View.VISIBLE);
             emptyListTextView.setVisibility(View.GONE);
         }
