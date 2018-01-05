@@ -52,10 +52,10 @@ public class EditNoteActivity extends RoboActionBarActivity {
         super.onCreate(savedInstanceState);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         note = (Note) getIntent().getSerializableExtra(EXTRA_NOTE);
-        if (note != null) { // Editar nota existente
+        if (note != null) { 
             noteTitleText.setText(note.getTitle());
             noteContentText.setText(note.getContent());
-        } else { // Nueva nota
+        } else { 
             note = new Note();
             note.setCreatedAt(new Date());
         }
