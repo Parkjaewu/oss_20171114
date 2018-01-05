@@ -13,27 +13,7 @@ import com.materialnotes.data.Note;
 
 import com.materialnotes.view.ShowHideOnScroll;
 import com.shamanland.fab.FloatingActionButton;
-
-import java.text.DateFormat;
-
-import roboguice.activity.RoboActionBarActivity;
-import roboguice.inject.ContentView;
-import roboguice.inject.InjectView;
-
-
-@ContentView(R.layout.activity_view_note)
-public class ViewNoteActivity extends RoboActionBarActivity {
-
-    private static final int EDIT_NOTE_RESULT_CODE = 8;
-    private static final String EXTRA_NOTE = "EXTRA_NOTE";
-    private static final String EXTRA_UPDATED_NOTE = "EXTRA_UPDATED_NOTE";
-    private static final DateFormat DATETIME_FORMAT = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM);
-
-    @InjectView(R.id.scroll_view)          private ScrollView scrollView;
-    @InjectView(R.id.edit_note_button)     private FloatingActionButton editNoteButton;
-    @InjectView(R.id.note_title)           private TextView noteTitleText;
-    @InjectView(R.id.note_content)         private TextView noteContentText;
-    @InjectView(R.id.note_created_at_date) private TextView noteCreatedAtDateText;
+dAtDateText;
     @InjectView(R.id.note_updated_at_date) private TextView noteUpdatedAtDateText;
 
     private Note note;
@@ -54,7 +34,27 @@ public class ViewNoteActivity extends RoboActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Muestra la flecha hacia atrás
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); 
+import java.text.DateFormat;
+
+import roboguice.activity.RoboActionBarActivity;
+import roboguice.inject.ContentView;
+import roboguice.inject.InjectView;
+
+
+@ContentView(R.layout.activity_view_note)
+public class ViewNoteActivity extends RoboActionBarActivity {
+
+    private static final int EDIT_NOTE_RESULT_CODE = 8;
+    private static final String EXTRA_NOTE = "EXTRA_NOTE";
+    private static final String EXTRA_UPDATED_NOTE = "EXTRA_UPDATED_NOTE";
+    private static final DateFormat DATETIME_FORMAT = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM);
+
+    @InjectView(R.id.scroll_view)          private ScrollView scrollView;
+    @InjectView(R.id.edit_note_button)     private FloatingActionButton editNoteButton;
+    @InjectView(R.id.note_title)           private TextView noteTitleText;
+    @InjectView(R.id.note_content)         private TextView noteContentText;
+    @InjectView(R.id.note_created_at_date) private TextView noteCreate
         scrollView.setOnTouchListener(new ShowHideOnScroll(editNoteButton, getSupportActionBar()));
         editNoteButton.setOnClickListener(new View.OnClickListener() {
 
